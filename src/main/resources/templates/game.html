@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Game</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div class="game">
+<h1>Welcome, <span th:text="${playerName}">Player</span></h1>
+<h2 th:text="${question.questionText}">Question</h2>
+
+<form th:action="@{/submit-answer}" method="post">
+    <div>
+        <label th:each="option : ${question.options}">
+            <input type="radio" th:value="${option}" name="answer" required/>
+            <span th:text="${option}"></span>
+        </label>
+    </div>
+    <button type="submit">Submit Answer</button>
+</form>
+
+
+<div th:if="${isCorrect}">
+    <h3>Congratulation..!,Correct Answer!</h3>
+</div>
+
+
+<div th:if="${errorMessage}">
+    <h3 th:text="${errorMessage}">Error Message</h3>
+</div>
+</div>
+</body>
+</html>

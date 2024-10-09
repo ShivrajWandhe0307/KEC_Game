@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>KBC Game</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+</head>
+<body>
+<div class="index">
+<h1 class="head">Welcome to KBC Game</h1>
+
+<h2>Enter Your Name to Join</h2>
+
+<form action="/start-game" method="post">
+    <label for="playerName">Enter Your Name:</label>
+    <input type="text" id="playerName" name="playerName" required>
+    <button type="submit">Start Game</button>
+</form>
+
+<h3>Or Click the Button to Generate a QR Code:</h3>
+<form th:action="@{/generate-qr}" method="get">
+    <button type="submit">Generate QR Code</button>
+</form>
+</div>
+<script>
+    new QRCode(document.getElementById("qrcode"), window.location.href + "player");
+</script>
+</body>
+</html>

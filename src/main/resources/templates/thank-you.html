@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thank You!</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<h1 style="color:green;font-size: 40px;">Thank You for Playing!</h1>
+<h2 style="color:white;font-size: 32px;">Congratulations, <span style="color:white;font-size: 32px;" th:text="${winnerName}">Player</span>!</h2>
+<p style="color:white;font-size: 20px;">You have completed the game!</p>
+<a style="font-size: 15px;color:red;" href="/">Play Again</a> <!-- Link to go back to the index page -->
+</body>
+</html>

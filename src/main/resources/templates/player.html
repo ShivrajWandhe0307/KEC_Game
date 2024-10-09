@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Player View</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Player Interface</h1>
+<h2 th:text="${question.questionText}"></h2>
+<form action="/submit-answer" method="post">
+    <input type="text" name="answer" placeholder="Your answer" required>
+    <button type="submit">Submit Answer</button>
+</form>
+<p th:if="${errorMessage}" th:text="${errorMessage}"></p>
+</body>
+</html>
